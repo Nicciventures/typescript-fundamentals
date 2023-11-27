@@ -11,7 +11,11 @@ type ProductType = {
 export default async function updateOutput(id: string) {
   const products = await getProducts();
   const output = document.querySelector(`#${id}`);
- // TO DO 
+  const html = layoutProducts(products);
+
+  if (output && html) {
+  output.innerHTML = html;
+  }
 }
 
 function layoutProducts(products: ProductType[]) {
@@ -117,4 +121,55 @@ function runTheLearningSamples() {
   }
 
   displayProducts(sampleProducts);
-}
+
+  const getRandomInt = (max: number = 1000) => Math.floor(Math.random() * max)
+
+  function createProduct(name: string, icon?: string): ProductType {
+    const id = getRandomInt(1000);
+    return {
+      id, 
+      name, 
+      icon,
+    };
+  }
+
+  console.log(`${prefix} Optional parameters`);
+  let pineapple = createProduct('pineapple', 'pine-apple.jpg')
+  let mango = createProduct('mango');
+  console.log(pineapple, mango);
+
+
+  function createProductWithDefaults(
+    name: string, 
+    icon: string = 'generic-fruit.jpg'
+    ): ProductType {
+    const id = getRandomInt();
+    return {
+      id, 
+      name, 
+      icon,
+    };
+  }
+
+   console.log(`${prefix} Default parameters`);
+   pineapple = createProductWithDefaults('pineapple', 'pine-apple.jpg')
+   mango = createProductWithDefaults('mango');
+   console.log(pineapple, mango);
+
+  function buildAddress(street: string, 
+    city: string, 
+    ...restOfAddress: string[]) {
+    const address = `${street} ${city} ${restOfAddress.join(' ')} `;
+    return address;
+  }
+
+  const someAddress = buildAddress(
+    '1 lois lane',  // street
+    'smallville',  // city
+    'apt 101', // rest arg [0]
+    'area 51',  // rest arg[1]
+    'mystery country'); //rest arg[2]
+
+    console.log(`${prefix} Rest parameters`);
+    console.log(someAddress);  
+  }
