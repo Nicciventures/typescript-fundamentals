@@ -121,7 +121,7 @@ function runTheLearningSamples() {
   }
 
   displayProducts(sampleProducts);
-
+  
   const getRandomInt = (max: number = 1000) => Math.floor(Math.random() * max)
 
   function createProduct(name: string, icon?: string): ProductType {
@@ -172,4 +172,13 @@ function runTheLearningSamples() {
 
     console.log(`${prefix} Rest parameters`);
     console.log(someAddress);  
+
+    function displayProduct({ id, name }: ProductType): void {
+      console.log(`${prefix} Destructuring parameters`);
+      console.log(`Prodct id=${id} and name=${name}`);}
+
+      const prod = getProductById(10);
+      if (prod) {
+        displayProduct(prod);
+      }
   }
