@@ -1,5 +1,4 @@
 import { Product } from "./interfaces";
-
 // abstract indicates building block class / makes a foundation. can't new it up
 // implement ensure that the class does as the 'Product' says you should
 abstract class ProductBase implements Product {
@@ -18,11 +17,11 @@ export class FoodProduct extends ProductBase {
   }
 }
 
-class SportingGoodProduct extends ProductBase {
-  constructor (id: number, name: string, icon: string) {
-    super(id, name, icon)
-  }
-}
+// class SportingGoodProduct extends ProductBase {
+//   constructor (id: number, name: string, icon: string) {
+//     super(id, name, icon)
+//   }
+// }
 
 // BELOW IS GITHUB CODE ALREADY PROVIDE. ABOVE IS IMPLEMENTED DURING THE EXPLANATION
 
