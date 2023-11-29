@@ -1,3 +1,5 @@
+// classes are a template used to encapsulate data and code
+
 import { Product } from "./interfaces";
 // abstract indicates building block class / makes a foundation. can't new it up
 // implement ensure that the class does as the 'Product' says you should
