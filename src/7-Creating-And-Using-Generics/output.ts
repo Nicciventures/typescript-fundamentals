@@ -154,6 +154,8 @@ async function runTheLearningSamples() {
   console.table(foodModel.items);
 
   // generic classes
+  
+
 
   // see GenericModel<T>
 
